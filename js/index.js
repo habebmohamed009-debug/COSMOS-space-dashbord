@@ -1,3 +1,17 @@
+let sidebarToggle=document.getElementById("sidebar-toggle")
+let sidebar=document.getElementById("sidebar")
+sidebarToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("sidebar-open");
+    
+    
+});
+document.addEventListener("click", (e) => {
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+        
+            sidebarToggle.click(); 
+    }
+});
+
 let sectionsBtns = document.querySelectorAll("nav a");
 let sections = document.querySelectorAll("section");
 for (let i = 0; i < sectionsBtns.length; i++) {
@@ -7,6 +21,7 @@ for (let i = 0; i < sectionsBtns.length; i++) {
         for (let k = 0; k < sectionsBtns.length; k++) {
         sectionsBtns[k].classList.remove("bg-blue-500/10", "text-blue-400");
         sectionsBtns[k].classList.add("text-slate-300", "hover-bg-slate-800");
+        sidebarToggle.click()
         }
         sectionBtn.classList.add("bg-blue-500/10", "text-blue-400");
         sectionBtn.classList.remove("text-slate-300", "hover-bg-slate-800");
@@ -22,6 +37,7 @@ for (let i = 0; i < sectionsBtns.length; i++) {
         }
         }
     });
+    
     }
 
 let apodImage = document.getElementById("apod-image");
@@ -432,3 +448,6 @@ async function getPlanets(){
 getApodImg()
 getLaunches()
 getPlanets()
+///////////////////////////////////////
+///side bar toggle
+
