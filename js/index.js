@@ -1,16 +1,19 @@
-let sidebarToggle=document.getElementById("sidebar-toggle")
-let sidebar=document.getElementById("sidebar")
+let sidebarToggle = document.getElementById("sidebar-toggle");
+let sidebar = document.getElementById("sidebar");
+
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("sidebar-open");
-    
-    
 });
+
 document.addEventListener("click", (e) => {
     if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
         
-            sidebarToggle.click(); 
+        if (sidebar.classList.contains("sidebar-open")) {
+            sidebarToggle.click();
+        }
     }
 });
+
 
 let sectionsBtns = document.querySelectorAll("nav a");
 let sections = document.querySelectorAll("section");
